@@ -71,7 +71,7 @@ fun LoginView(
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Entrar")
+            Text("Ingresar")
         }
     }
 }
