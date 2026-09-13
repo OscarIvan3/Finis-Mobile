@@ -8,17 +8,24 @@ import androidx.lifecycle.ViewModel
 class LoginViewModel : ViewModel() {
     var username by mutableStateOf("")
     var password by mutableStateOf("")
+    var errorMessage by mutableStateOf<String?>(null)
 
     fun onUsernameChange(newUsername: String) {
         username = newUsername
+        errorMessage = null
     }
 
     fun onPasswordChange(newPassword: String) {
         password = newPassword
+        errorMessage = null
     }
 
-    fun login() {
-        // Aquí iría la lógica de autenticación
-        println("Intentando login con: $username")
+    fun login(onSuccess: () -> Unit) {
+        if (username == "admin" && password == "1234") {
+            errorMessage = null
+            onSuccess()
+        } else {
+            errorMessage = "Usuario o contraseña incorrectos"
+        }
     }
 }

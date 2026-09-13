@@ -33,7 +33,7 @@ fun LoginView(
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        Text(text = "Bienvenido", style = MaterialTheme.typography.headlineMedium)
+        Text(text = "Bienvenido a finis", style = MaterialTheme.typography.headlineMedium)
         
         Spacer(modifier = Modifier.height(16.dp))
         
@@ -56,10 +56,18 @@ fun LoginView(
         
         Spacer(modifier = Modifier.height(24.dp))
         
+        if (viewModel.errorMessage != null) {
+            Text(
+                text = viewModel.errorMessage!!,
+                color = MaterialTheme.colorScheme.error,
+                style = MaterialTheme.typography.bodySmall
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+
         Button(
             onClick = { 
-                viewModel.login()
-                onLoginSuccess() // Esto activa la navegación a las pestañas
+                viewModel.login(onSuccess = onLoginSuccess)
             },
             modifier = Modifier.fillMaxWidth()
         ) {
