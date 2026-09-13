@@ -1,0 +1,30 @@
+package com.jorgeromo.androidbasicsclass.ui.thirdpartialids2.homeThirdPartialIDS2.view
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.jorgeromo.androidbasicsclass.ui.thirdpartialids2.homeThirdPartialIDS2.viewmodel.HomeThirdPartialIDS2ViewModel
+
+@Composable
+fun HomeThirdPartialIDS2View(
+    viewModel: HomeThirdPartialIDS2ViewModel = viewModel(),
+    onNavigateToApi: () -> Unit
+) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(text = "Revisar Finanzas", style = MaterialTheme.typography.headlineMedium)
+        
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Button(onClick = onNavigateToApi) {
+            Text(text = "Ver Ahorros")
+        }
+    }
+}
